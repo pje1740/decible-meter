@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: white;
@@ -31,27 +31,87 @@ h1 {
     text-align: center;
 }
 
-.meter {
-    width: 100%;
-    height: 30px;
-    background-color: #eee;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 1rem;
+.gauge {
     position: relative;
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    padding-top: 10px;
 }
 
-.level {
+.gauge-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #4CAF50, #FFC107, #F44336);
-    transition: width 0.1s ease;
+    border-radius: 150px 150px 0 0;
+    background-color: #f0f0f0;
+    overflow: hidden;
 }
 
-.db-value {
-    font-size: 2rem;
+.tick-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(
+        from 180deg,
+        transparent 0deg,
+        transparent 4deg,
+        rgba(0, 0, 0, 0.1) 4deg,
+        rgba(0, 0, 0, 0.1) 5deg
+    );
+    border-radius: 150px 150px 0 0;
+}
+
+.gauge-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 150px 150px 0 0;
+    background: linear-gradient(90deg,
+        #4CAF50 0%,    /* Green */
+        #FFC107 50%,   /* Yellow */
+        #FF5722 100%   /* Red */
+    );
+    transform-origin: center bottom;
+    transition: clip-path 0.3s ease;
+}
+
+.gauge-value {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.gauge-value .value {
+    font-size: 2.5rem;
     font-weight: bold;
-    margin: 1rem 0;
+    color: #2c3e50;
+    line-height: 1;
+}
+
+.gauge-value .unit {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+.gauge-label {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
 }
 
 .controls {
@@ -61,13 +121,16 @@ h1 {
     margin: 2rem 0;
 }
 
-button {
+.button {
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 #startButton {
@@ -77,6 +140,7 @@ button {
 
 #startButton:hover {
     background-color: #45a049;
+    transform: translateY(-1px);
 }
 
 #stopButton {
@@ -86,17 +150,20 @@ button {
 
 #stopButton:hover {
     background-color: #da190b;
+    transform: translateY(-1px);
 }
 
 button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+    transform: none !important;
 }
 
 .info {
     text-align: center;
     color: #666;
     font-size: 0.9rem;
+    margin: 2rem 0;
 }
 
 .info p {
