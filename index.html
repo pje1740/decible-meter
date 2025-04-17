@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decibel Meter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Decibel Meter</h1>
+      <div class="meter-container">
+        <div class="meter">
+          <div class="level" id="level"></div>
+        </div>
+        <div class="db-value" id="dbValue">-- dB</div>
+      </div>
+      <div class="controls">
+        <button id="startButton">Start</button>
+        <button id="stopButton" disabled>Stop</button>
+      </div>
+      <div class="info">
+        <p>Click "Start" to begin measuring sound levels.</p>
+        <p>Make sure to allow microphone access when prompted.</p>
+      </div>
+      <div class="notice">
+        <h2>About Accuracy</h2>
+        <p>
+          This decibel meter provides approximate measurements and may not be as
+          accurate as professional sound level meters. The readings can be
+          affected by:
+        </p>
+        <ul>
+          <li>Microphone quality and sensitivity</li>
+          <li>Background noise and room acoustics</li>
+          <li>Device hardware and software limitations</li>
+        </ul>
+        <p>For more accurate measurements:</p>
+        <ul>
+          <li>Use an external, calibrated microphone</li>
+          <li>Measure in a controlled environment</li>
+          <li>Compare readings with a professional sound level meter</li>
+        </ul>
+        <p class="disclaimer">
+          This tool is for informational purposes only and should not be used
+          for professional or regulatory compliance measurements.
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
