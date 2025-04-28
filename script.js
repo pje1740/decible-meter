@@ -149,7 +149,6 @@ class DecibelMeter {
       if (valueElement) {
         valueElement.textContent = "--";
       }
-      this.levelLabel.textContent = "Ambient";
     }
   }
 
@@ -205,19 +204,6 @@ class DecibelMeter {
     if (valueElement) {
       valueElement.textContent = Math.round(db);
     }
-
-    // Update level label
-    let label = "Extremely Low";
-    if (db < 50) {
-      label = "Low";
-    } else if (db < 70) {
-      label = "Average";
-    } else if (db < 85) {
-      label = "High";
-    } else {
-      label = "Extremely High";
-    }
-    this.levelLabel.textContent = label;
   }
 }
 

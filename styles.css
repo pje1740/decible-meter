@@ -56,13 +56,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-conic-gradient(
-        from 180deg,
-        transparent 0deg,
-        transparent 4deg,
-        rgba(0, 0, 0, 0.1) 4deg,
-        rgba(0, 0, 0, 0.1) 5deg
-    );
+    background: lightgray;
     border-radius: 150px 150px 0 0;
 }
 
@@ -74,9 +68,9 @@ h1 {
     height: 100%;
     border-radius: 150px 150px 0 0;
     background: linear-gradient(90deg,
-        #4CAF50 0%,    /* Green */
-        #FFC107 50%,   /* Yellow */
-        #FF5722 100%   /* Red */
+        #98d8a1 0%,    /* Pastel Green */
+        #ffe5a3 50%,   /* Pastel Yellow */
+        #ff9a9e 100%   /* Pastel Red/Pink */
     );
     transform-origin: center bottom;
     transition: clip-path 0.3s ease;
@@ -84,7 +78,7 @@ h1 {
 
 .gauge-value {
     position: absolute;
-    bottom: 35%;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
